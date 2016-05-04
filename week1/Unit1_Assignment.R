@@ -1,5 +1,7 @@
 # Get the current directory
   getwd()
+
+#################### AN ANALYTICAL DETECTIVE motor vehicle theft ###############################
 # Read the csv file
   mvt = read.csv("mvtWeek1.csv")
 # Structure of the dataset
@@ -56,7 +58,7 @@
   table(Top5$LocationDescription)
   table(Top5Arrested$LocationDescription)
 
-##############################################################################
+###############STOCK DYNAMICS###############################################################
   IBM = read.csv("IBMStock.csv")
   GE = read.csv("GEStock.csv")
   ProcterGamble = read.csv("ProcterGambleStock.csv")
@@ -80,3 +82,14 @@
 
   # how the stock prices changed from 1995-2005 for all five companies
   plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+  lines(IBM$Date[301:432], IBM$StockPrice[301:432], col="blue")
+  lines(GE$Date[301:432], GE$StockPrice[301:432], col="orange")
+  lines(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432], col="green")
+  lines(Boeing$Date[301:432], Boeing$StockPrice[301:432], col="black")
+  abline(v=as.Date(c("2000-03-01")), lwd=2)
+  abline(v=as.Date(c("1997-10-01")), lwd=2)
+
+  # Use the tapply command to calculate the mean stock price of IBM, sorted by months
+  tapply(IBM$StockPrice, months(IBM$Date), mean, na.rm=TRUE)
+
+##################DEMOGRAPHICS AND EMPLOYMENT IN THE UNITED STATES############################
